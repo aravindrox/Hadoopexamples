@@ -21,10 +21,10 @@ public class MeanDriver {
 
 		job.setMapperClass(MeanMapper.class);
 		job.setReducerClass(MeanReducer.class);
-//		job.setCombinerClass(MeanReducer.class);
+		job.setCombinerClass(MeanReducer.class);
 
 		job.setMapOutputKeyClass(Text.class);
-		job.setMapOutputValueClass(IntWritable.class);
+		job.setMapOutputValueClass(IntPair.class);
 
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
@@ -33,9 +33,9 @@ public class MeanDriver {
 		job.setOutputFormatClass(TextOutputFormat.class);
 
 		FileInputFormat.setInputPaths(job, new Path(
-				"/home/cloudera/Desktop/sample"));
+				"/home/cloudera/Desktop/Temp"));
 		FileOutputFormat.setOutputPath(job, new Path(
-				"/home/cloudera/Desktop/sample3"));
+				"/home/cloudera/Desktop/Temp1"));
 		
 		job.waitForCompletion(true);
 
